@@ -1,0 +1,88 @@
+﻿@model SMH_Project.ViewModel.Patients.UpdateVM
+
+<!-- Breadcrumb -->
+<!-- Page Title -->
+<div class="row no-margin-padding">
+    <div class="col-md-6">
+        <h3 class="block-title">Add Patient</h3>
+    </div>
+    <div class="col-md-6">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="ti-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-item">Patients</li>
+            <li class="breadcrumb-item active">Add Patient</li>
+        </ol>
+    </div>
+</div>
+<!-- /Page Title -->
+<!-- /Breadcrumb -->
+<!-- Main Content -->
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title">Update Patient</h3>
+                <form asp-action="Edit" method="Post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-row ">
+                        <div class="form-group col-md-6">
+                            <label asp-for="PatientName"></label>
+                            <input asp-for="PatientName" class="form-control" placeholder="Patient name">
+                            <span asp-validation-for="PatientName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="DOB"></label>
+                            <input asp-for="DOB" placeholder="Date of Birth" class="form-control">
+                            <span asp-validation-for="DOB" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Age"></label>
+                            <input asp-for="Age" placeholder="Age" class="form-control">
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="PhoneNumber"></label>
+                            <input asp-for="PhoneNumber" placeholder="Phone" class="form-control">
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" placeholder="email" class="form-control">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Gender"></label>
+                            <select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()" class="form-control">
+                                <option value="Please Select"></option>
+                            </select>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label asp-for="Address"></label>
+                            <textarea asp-for="Address" placeholder="Address" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="file">File</label>
+                            <input type="file" class="form-control" id="file">
+                        </div>
+
+                      
+                        <div class="form-group col-md-6 mb-3">
+                            <button type="submit" class="btn btn-success btn-lg">Upgrade</button>
+                        </div>
+
+                    </div>
+                </form>
+               
+            </div>
+        </div>
+       
+    </div>
+</div>

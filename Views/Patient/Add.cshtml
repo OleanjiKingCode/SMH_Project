@@ -1,0 +1,129 @@
+﻿@model SMH_Project.ViewModel.AddPatientVM
+
+
+<!-- Breadcrumb -->
+<!-- Page Title -->
+<div class="row no-margin-padding">
+    <div class="col-md-6">
+        <h3 class="block-title">Add Patient</h3>
+    </div>
+    <div class="col-md-6">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="ti-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-item">Patients</li>
+            <li class="breadcrumb-item active">Add Patient</li>
+        </ol>
+    </div>
+</div>
+<!-- /Page Title -->
+<!-- /Breadcrumb -->
+<!-- Main Content -->
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title">Add Patient</h3>
+                <form asp-action="Add" method="Post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-row ">
+                        <div class="form-group col-md-6">
+                            <label asp-for="PatientName"></label>
+                            <input asp-for="PatientName"  class="form-control" placeholder="Patient name" >
+                            <span asp-validation-for="PatientName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="DOB"></label>
+                            <input asp-for="DOB"  placeholder="Date of Birth" class="form-control" >
+                            <span asp-validation-for="DOB" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Age"></label>
+                            <input asp-for="Age"  placeholder="Age" class="form-control" >
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="PhoneNumber"></label>
+                            <input asp-for="PhoneNumber" placeholder="Phone" class="form-control" >
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" placeholder="email" class="form-control" >
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Gender"></label>
+                            <select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()" class="form-control" >
+                                <option value="">-Please Select-</option>
+                            </select>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label asp-for="Address"></label>
+                            <textarea asp-for="Address" placeholder="Address" class="form-control"  rows="4"></textarea>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label asp-for="Photo"></label>
+                            <div class="custom-file">
+                                <input asp-for="Photo" class="form-control custom-file-input">
+                                <label class="custom-file-label">Choose File.....</label>
+                            </div>
+                        </div>
+
+                        @*<div class="form-check col-md-12 mb-2">
+                <div class="text-left">
+                    <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input" type="checkbox" id="ex-check-2">
+                        <label class="custom-control-label" for="ex-check-2">Please Confirm</label>
+                    </div>
+                </div>
+            </div>*@
+                        <div class="form-group col-md-6 mb-3">
+                            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                        </div>
+
+                        @section Scripts{ 
+                            <script>
+                                $(document).ready(function () {
+                                    $(".custom-file-input").on("change", function () {
+                                        var FileName = $(this).val().split("\\").pop();
+                                        $(this).next('.custom-file-label').html.FileName);
+
+                                    });
+                                });
+                            </script>
+                        }
+
+
+
+
+
+
+                    </div>
+                </form>
+                <!-- Alerts-->
+                @*<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Successfully Done!</strong> Please add payment now
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>*@
+                <!-- /Alerts-->
+            </div>
+        </div>
+        <!-- /Widget Item -->
+    </div>
+</div>

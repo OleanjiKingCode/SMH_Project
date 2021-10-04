@@ -1,0 +1,126 @@
+﻿@model IEnumerable<SMH_Project.ViewModel.Patients.PatientVM>
+
+<!-- Breadcrumb -->
+<!-- Page Title -->
+<div class="row no-margin-padding">
+    <div class="col-md-6">
+        <h3 class="block-title">Patients</h3>
+    </div>
+    <div class="col-md-6">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">
+                    <span class="ti-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-item">Patients</li>
+            <li class="breadcrumb-item active">All Patients</li>
+        </ol>
+    </div>
+</div>
+<!-- /Page Title -->
+<!-- /Breadcrumb -->
+<!-- Main Content -->
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+            <div class="widget-area-2 proclinic-box-shadow">
+                <h3 class="widget-title">Patients List</h3>
+                <div class="table-responsive mb-3">
+                    <table id="tableId" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                
+                                <th> @Html.DisplayNameFor(model => model.PatientId)</th>
+                                <th>@Html.DisplayNameFor(model => model.PatientName)</th>
+                                <th>@Html.DisplayNameFor(model => model.Age)</th>
+                                <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                                <th>@Html.DisplayNameFor(model => model.LastVisit)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td> @Html.DisplayFor(modelItem => item.PatientId)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.PatientName)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.Age)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.LastVisit)</td>
+                                    <td>
+
+                                        <a asp-action="Edit" asp-route-id="@item.PatientId" class="btn btn-primary mt-3 mb-0"><span class="ti-pencil-alt"></span> EDIT</a>
+                                        <a asp-action="Details" asp-route-id="@item.PatientId" class="btn btn-success mt-3 mb-0">Details</a>
+                                      
+
+
+
+
+
+                                        <!-- Modal Button-->
+                                        <a asp-action="Delete"  asp-route-id="@item.PatientId" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                            Delete
+                                        </a>
+                                        <!-- /Modal Button-->
+                                        <!-- Modal Popup-->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Delete this Patient?</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Do you want to delete Patient Id No ("@Html.DisplayFor(modelItem => item.PatientId)")
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                                        <form  asp-action="Index" method="post">
+                                                            <Input type="submit"  value="DELETE " class="btn btn-lorvens proclinic-bg" />
+                                                                @*<span class="ti-trash"></span>*@ 
+                                                           
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Modal Popup-->
+                                        @*<a asp-action="Delete" class="btn btn-danger mt-3 mb-0"><span class="ti-trash"></span> DELETE</a>*@
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                    </table>
+                    <!--Export links-->
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center export-pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#"><span class="ti-download"></span> csv</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#"><span class="ti-printer"></span>  print</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#"><span class="ti-file"></span> PDF</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#"><span class="ti-align-justify"></span> Excel</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- /Export links-->
+                    @*<button  type="button" class="btn btn-danger mt-3 mb-0"><span class="ti-trash"></span> DELETE</button>
+                    <button asp-action="Edit"  type="button" class="btn btn-primary mt-3 mb-0"><span class="ti-pencil-alt"></span> EDIT</button>*@
+                </div>
+            </div>
+        </div>
+        <!-- /Widget Item -->
+    </div>
+</div>

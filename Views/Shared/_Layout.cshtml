@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> SMH_Project</title>
+
+    <environment include="Development">
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
+        <link  rel="stylesheet" href="~/lib/bootstrap/dist/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/themify.css" />
+        <link rel="stylesheet" href="~/css/animate.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+
+        <link rel="stylesheet" href="~/css/red.css" id="style_theme" />
+        <link rel="stylesheet" href="~/css/responsive.css" />
+
+
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+      
+      
+
+    </environment>
+</head>
+<body>
+    <!-- Pre Loader -->
+    <div class="loading">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+    <!--/Pre Loader -->
+    <!-- Color Changer -->
+    <!-- /Color Changer -->
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="proclinic-bg">
+            <div class="sidebar-header">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo.png" class="logo" alt="logo">
+                </a>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#nav-dashboard" data-toggle="collapse" aria-expanded="true">
+                        <span class="ti-home"></span> Dashboard
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#nav-patients" data-toggle="collapse" aria-expanded="false">
+                        <span class="ti-wheelchair"></span> Patients
+                    </a>
+                    <ul class="collapse list-unstyled" id="nav-patients">
+                        <li>
+                            <a asp-area="" asp-controller="Patient" asp-action="Add">Add Patient</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Patient" asp-action="Index">All Patients</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Patient" asp-action="Details">Patient Details</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Patient" asp-action="Edit">Edit Patient</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav-doctors" data-toggle="collapse" aria-expanded="false">
+                        <span class="ti-user"></span> Doctors
+                    </a>
+                    <ul class="collapse list-unstyled" id="nav-doctors">
+                        <li>
+                            <a href="add-doctor.html">Add Doctor</a>
+                        </li>
+                        <li>
+                            <a href="doctors.html">All Doctors</a>
+                        </li>
+                        <li>
+                            <a href="about-doctor.html">Doctor Details</a>
+                        </li>
+                        <li>
+                            <a href="edit-doctor.html">Edit Doctor</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav-appointment" data-toggle="collapse" aria-expanded="false">
+                        <span class="ti-pencil-alt"></span> Appointments
+                    </a>
+                    <ul class="collapse list-unstyled" id="nav-appointment">
+                        <li>
+                            <a href="add-appointment.html">Add Appointment</a>
+                        </li>
+                        <li>
+                            <a href="appointments.html">All Appointments</a>
+                        </li>
+                        <li>
+                            <a href="about-appointment.html">Appointment Details</a>
+                        </li>
+                        <li>
+                            <a href="edit-appointment.html">Edit Appointment</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav-payment" data-toggle="collapse" aria-expanded="false">
+                        <span class="ti-money"></span> Payments
+                    </a>
+                    <ul class="collapse list-unstyled" id="nav-payment">
+                        <li>
+                            <a href="add-payment.html">Add Payment</a>
+                        </li>
+                        <li>
+                            <a href="payments.html">All Payments</a>
+                        </li>
+                        <li>
+                            <a href="about-payment.html">Payment Invoice</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+            <div class="nav-help animated fadeIn">
+                <h5><span class="ti-comments"></span> Need Help</h5>
+                <h6>
+                    <span class="ti-mobile"></span> +234 810 026 969
+                </h6>
+                <h6>
+                    <span class="ti-email"></span> email@site.com
+                </h6>
+                <p class="copyright-text">Copy rights &copy; 2018</p>
+            </div>
+        </nav>
+        <!-- /Sidebar -->
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Top Navigation -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="responsive-logo">
+                        <a href="index.html"><img src="images/logo-dark.png" class="logo" alt="logo"></a>
+                    </div>
+                    <ul class="nav">
+
+                        <li class="nav-item">
+                            <span class="ti-menu" id="sidebarCollapse"></span>
+                        </li>
+                        <li class="nav-item">
+                            <span title="Fullscreen" class="ti-fullscreen fullscreen"></span>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="modal" data-target=".proclinic-modal-lg">
+                                <span class="ti-search"></span>
+                            </a>
+                            <div class="modal fade proclinic-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-lorvens">
+                                    <div class="modal-content proclinic-box-shadow2">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Search Patient/Doctor:</h5>
+                                            <span class="ti-close" data-dismiss="modal" aria-label="Close">
+                                            </span>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="search-term" placeholder="Type text here">
+                                                    <button type="button" class="btn btn-lorvens proclinic-bg">
+                                                        <span class="ti-location-arrow"></span> Search
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="ti-announcement"></span>
+                            </a>
+                            <div class="dropdown-menu proclinic-box-shadow2 notifications animated flipInY">
+                                <h5>Notifications</h5>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-wheelchair"></span> New Patient Added
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-money"></span> Patient payment done
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-time"></span>Patient Appointment booked
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-wheelchair"></span> New Patient Added
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="ti-user"></span>
+                            </a>
+                            <div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
+                                <h5>John Willing</h5>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-settings"></span> Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-help-alt"></span> Help
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-power-off"></span> Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+            <!-- /Top Navigation -->
+            @*<partial name="_CookieConsentPartial" />*@
+            <!-- /Top Navigation -->
+
+
+
+
+
+
+
+
+
+            @RenderBody()
+
+
+
+
+
+
+
+
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <a id="back-to-top" href="#" class="back-to-top">
+        <span class="ti-angle-up"></span>
+    </a>
+    <!-- /Back to Top -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <environment include="Development">
+        <script src="~/lib/Jquery1/jquery-3.2.1.min.js"></script>
+        @*<script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>*@
+        <script src="~/lib/Jquery1/bootstrap.min.js"></script>
+        @*<script src="~/lib/bootstrap/dist/js/bootstrap.js" asp-append-version="true"></script>*@
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts", required: true)
+    }
+
+</body>
+</html>
